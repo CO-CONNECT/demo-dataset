@@ -1,0 +1,40 @@
+settings:
+  listen_for_changes: False
+  #clean: False
+
+load: &load-bclink
+  cache: output/
+  bclink:
+    dry_run: true
+
+transform:
+  settings: &settings
+    output: output/
+    #merge_output: true
+    #output: *load-bclink
+    rules: rules_small.json
+    #rules: rules.json
+  data:
+    #- input: data/
+    #  <<: *settings
+    #- input: data/part1/
+    #  <<: *settings
+    #- input: data/part2/
+    #  <<: *settings
+    - input: data/part3/
+      <<: *settings
+      #- input: data/part33/
+      #<<: *settings
+      #<<: *settings
+      #  <<: *load-bclink
+      #  cache: output/part1/
+      #indexing_conf:
+      #  <<: *extract-indexing-bclink
+      #  cache: output/part1/
+      #dont_automatically_fill_missing_columns: true
+      #format_level: 0 
+      #number_of_rows_per_chunk: 1000
+    #- input: data/part2/
+    #  output: output/p2/
+      #- input: data/part3/
+      #  output: output/p3/  

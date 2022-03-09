@@ -1,0 +1,726 @@
+{
+      "metadata": {
+            "date_created": "2022-02-11T12:22:48.465257",
+            "dataset": "FAILED: ExampleV4"
+      },
+      "cdm": {
+            "person": {
+                  "MALE 3025": {
+                        "birth_datetime": {
+                              "source_table": "Demographics.csv",
+                              "source_field": "Age",
+			      "operations":["get_datetime_from_age"]
+                        },
+                        "gender_concept_id": {
+                              "source_table": "Demographics.csv",
+                              "source_field": "Sex",
+                              "term_mapping": {
+                                    "Male": 8507
+                              }
+                        },
+                        "gender_source_concept_id": {
+                              "source_table": "Demographics.csv",
+                              "source_field": "Sex",
+                              "term_mapping": {
+                                    "Male": 8507
+                              }
+                        },
+                        "gender_source_value": {
+                              "source_table": "Demographics.csv",
+                              "source_field": "Sex"
+                        },
+                        "person_id": {
+                              "source_table": "Demographics.csv",
+                              "source_field": "ID"
+                        }
+                  },
+                  "FEMALE 3026": {
+                        "birth_datetime": {
+                              "source_table": "Demographics.csv",
+                              "source_field": "Age",
+			      "operations": ["get_datetime_from_age"]
+                        },
+                        "gender_concept_id": {
+                              "source_table": "Demographics.csv",
+                              "source_field": "Sex",
+                              "term_mapping": {
+                                    "Female": 8532
+                              }
+                        },
+                        "gender_source_concept_id": {
+                              "source_table": "Demographics.csv",
+                              "source_field": "Sex",
+                              "term_mapping": {
+                                    "Female": 8532
+                              }
+                        },
+                        "gender_source_value": {
+                              "source_table": "Demographics.csv",
+                              "source_field": "Sex"
+                        },
+                        "person_id": {
+                              "source_table": "Demographics.csv",
+                              "source_field": "ID"
+                        }
+                  }
+            },
+            "observation": {
+                  "Antibody 3027": {
+                        "observation_concept_id": {
+                              "source_table": "Serology.csv",
+                              "source_field": "IgG",
+                              "term_mapping": 4288455
+                        },
+                        "observation_datetime": {
+                              "source_table": "Serology.csv",
+                              "source_field": "Date"
+                        },
+                        "observation_source_concept_id": {
+                              "source_table": "Serology.csv",
+                              "source_field": "IgG",
+                              "term_mapping": 4288455
+                        },
+                        "observation_source_value": {
+                              "source_table": "Serology.csv",
+                              "source_field": "IgG"
+                        },
+                        "person_id": {
+                              "source_table": "Serology.csv",
+                              "source_field": "ID"
+                        }
+                  },
+                  "H/O: heart failure 3043": {
+                        "observation_concept_id": {
+                              "source_table": "Hospital_Visit.csv",
+                              "source_field": "reason",
+                              "term_mapping": {
+                                    "Heart Attack": 4059317
+                              }
+                        },
+                        "observation_datetime": {
+                              "source_table": "Hospital_Visit.csv",
+                              "source_field": "admission_date"
+                        },
+                        "observation_source_concept_id": {
+                              "source_table": "Hospital_Visit.csv",
+                              "source_field": "reason",
+                              "term_mapping": {
+                                    "Heart Attack": 4059317
+                              }
+                        },
+                        "observation_source_value": {
+                              "source_table": "Hospital_Visit.csv",
+                              "source_field": "reason"
+                        },
+                        "person_id": {
+                              "source_table": "Hospital_Visit.csv",
+                              "source_field": "ID"
+                        }
+                  },
+                  "2019-nCoV 3044": {
+                        "observation_concept_id": {
+                              "source_table": "Hospital_Visit.csv",
+                              "source_field": "reason",
+                              "term_mapping": {
+                                    "COVID-19": 37311065
+                              }
+                        },
+                        "observation_datetime": {
+                              "source_table": "Hospital_Visit.csv",
+                              "source_field": "admission_date"
+                        },
+                        "observation_source_concept_id": {
+                              "source_table": "Hospital_Visit.csv",
+                              "source_field": "reason",
+                              "term_mapping": {
+                                    "COVID-19": 37311065
+                              }
+                        },
+                        "observation_source_value": {
+                              "source_table": "Hospital_Visit.csv",
+                              "source_field": "reason"
+                        },
+                        "person_id": {
+                              "source_table": "Hospital_Visit.csv",
+                              "source_field": "ID"
+                        }
+                  },
+                  "Cancer 3045": {
+                        "observation_concept_id": {
+                              "source_table": "Hospital_Visit.csv",
+                              "source_field": "reason",
+                              "term_mapping": {
+                                    "Cancer": 40757663
+                              }
+                        },
+                        "observation_datetime": {
+                              "source_table": "Hospital_Visit.csv",
+                              "source_field": "admission_date"
+                        },
+                        "observation_source_concept_id": {
+                              "source_table": "Hospital_Visit.csv",
+                              "source_field": "reason",
+                              "term_mapping": {
+                                    "Cancer": 40757663
+                              }
+                        },
+                        "observation_source_value": {
+                              "source_table": "Hospital_Visit.csv",
+                              "source_field": "reason"
+                        },
+                        "person_id": {
+                              "source_table": "Hospital_Visit.csv",
+                              "source_field": "ID"
+                        }
+                  }
+            },
+            "condition_occurrence": {
+                  "Headache 3028": {
+                        "condition_concept_id": {
+                              "source_table": "Symptoms.csv",
+                              "source_field": "Headache",
+                              "term_mapping": {
+                                    "Yes": 378253
+                              }
+                        },
+                        "condition_end_datetime": {
+                              "source_table": "Symptoms.csv",
+                              "source_field": "date_occurrence"
+                        },
+                        "condition_source_concept_id": {
+                              "source_table": "Symptoms.csv",
+                              "source_field": "Headache",
+                              "term_mapping": {
+                                    "Yes": 378253
+                              }
+                        },
+                        "condition_source_value": {
+                              "source_table": "Symptoms.csv",
+                              "source_field": "Headache"
+                        },
+                        "condition_start_datetime": {
+                              "source_table": "Symptoms.csv",
+                              "source_field": "date_occurrence"
+                        },
+                        "person_id": {
+                              "source_table": "Symptoms.csv",
+                              "source_field": "ID"
+                        }
+                  },
+                  "Fatigue 3029": {
+                        "condition_concept_id": {
+                              "source_table": "Symptoms.csv",
+                              "source_field": "Fatigue",
+                              "term_mapping": {
+                                    "Yes": 4223659
+                              }
+                        },
+                        "condition_end_datetime": {
+                              "source_table": "Symptoms.csv",
+                              "source_field": "date_occurrence"
+                        },
+                        "condition_source_concept_id": {
+                              "source_table": "Symptoms.csv",
+                              "source_field": "Fatigue",
+                              "term_mapping": {
+                                    "Yes": 4223659
+                              }
+                        },
+                        "condition_source_value": {
+                              "source_table": "Symptoms.csv",
+                              "source_field": "Fatigue"
+                        },
+                        "condition_start_datetime": {
+                              "source_table": "Symptoms.csv",
+                              "source_field": "date_occurrence"
+                        },
+                        "person_id": {
+                              "source_table": "Symptoms.csv",
+                              "source_field": "ID"
+                        }
+                  },
+                  "Dizziness 3030": {
+                        "condition_concept_id": {
+                              "source_table": "Symptoms.csv",
+                              "source_field": "Dizzy",
+                              "term_mapping": {
+                                    "Yes": 4223938
+                              }
+                        },
+                        "condition_end_datetime": {
+                              "source_table": "Symptoms.csv",
+                              "source_field": "date_occurrence"
+                        },
+                        "condition_source_concept_id": {
+                              "source_table": "Symptoms.csv",
+                              "source_field": "Dizzy",
+                              "term_mapping": {
+                                    "Yes": 4223938
+                              }
+                        },
+                        "condition_source_value": {
+                              "source_table": "Symptoms.csv",
+                              "source_field": "Dizzy"
+                        },
+                        "condition_start_datetime": {
+                              "source_table": "Symptoms.csv",
+                              "source_field": "date_occurrence"
+                        },
+                        "person_id": {
+                              "source_table": "Symptoms.csv",
+                              "source_field": "ID"
+                        }
+                  },
+                  "Cough 3031": {
+                        "condition_concept_id": {
+                              "source_table": "Symptoms.csv",
+                              "source_field": "Cough",
+                              "term_mapping": {
+                                    "Yes": 254761
+                              }
+                        },
+                        "condition_end_datetime": {
+                              "source_table": "Symptoms.csv",
+                              "source_field": "date_occurrence"
+                        },
+                        "condition_source_concept_id": {
+                              "source_table": "Symptoms.csv",
+                              "source_field": "Cough",
+                              "term_mapping": {
+                                    "Yes": 254761
+                              }
+                        },
+                        "condition_source_value": {
+                              "source_table": "Symptoms.csv",
+                              "source_field": "Cough"
+                        },
+                        "condition_start_datetime": {
+                              "source_table": "Symptoms.csv",
+                              "source_field": "date_occurrence"
+                        },
+                        "person_id": {
+                              "source_table": "Symptoms.csv",
+                              "source_field": "ID"
+                        }
+                  },
+                  "Fever 3032": {
+                        "condition_concept_id": {
+                              "source_table": "Symptoms.csv",
+                              "source_field": "Fever",
+                              "term_mapping": {
+                                    "Yes": 437663
+                              }
+                        },
+                        "condition_end_datetime": {
+                              "source_table": "Symptoms.csv",
+                              "source_field": "date_occurrence"
+                        },
+                        "condition_source_concept_id": {
+                              "source_table": "Symptoms.csv",
+                              "source_field": "Fever",
+                              "term_mapping": {
+                                    "Yes": 437663
+                              }
+                        },
+                        "condition_source_value": {
+                              "source_table": "Symptoms.csv",
+                              "source_field": "Fever"
+                        },
+                        "condition_start_datetime": {
+                              "source_table": "Symptoms.csv",
+                              "source_field": "date_occurrence"
+                        },
+                        "person_id": {
+                              "source_table": "Symptoms.csv",
+                              "source_field": "ID"
+                        }
+                  },
+                  "Muscle pain 3033": {
+                        "condition_concept_id": {
+                              "source_table": "Symptoms.csv",
+                              "source_field": "Muscle_Pain",
+                              "term_mapping": {
+                                    "Yes": 442752
+                              }
+                        },
+                        "condition_end_datetime": {
+                              "source_table": "Symptoms.csv",
+                              "source_field": "date_occurrence"
+                        },
+                        "condition_source_concept_id": {
+                              "source_table": "Symptoms.csv",
+                              "source_field": "Muscle_Pain",
+                              "term_mapping": {
+                                    "Yes": 442752
+                              }
+                        },
+                        "condition_source_value": {
+                              "source_table": "Symptoms.csv",
+                              "source_field": "Muscle_Pain"
+                        },
+                        "condition_start_datetime": {
+                              "source_table": "Symptoms.csv",
+                              "source_field": "date_occurrence"
+                        },
+                        "person_id": {
+                              "source_table": "Symptoms.csv",
+                              "source_field": "ID"
+                        }
+                  },
+                  "Pneumonia 3042": {
+                        "condition_concept_id": {
+                              "source_table": "Hospital_Visit.csv",
+                              "source_field": "reason",
+                              "term_mapping": {
+                                    "Pneumonia": 255848
+                              }
+                        },
+                        "condition_end_datetime": {
+                              "source_table": "Hospital_Visit.csv",
+                              "source_field": "admission_date"
+                        },
+                        "condition_source_concept_id": {
+                              "source_table": "Hospital_Visit.csv",
+                              "source_field": "reason",
+                              "term_mapping": {
+                                    "Pneumonia": 255848
+                              }
+                        },
+                        "condition_source_value": {
+                              "source_table": "Hospital_Visit.csv",
+                              "source_field": "reason"
+                        },
+                        "condition_start_datetime": {
+                              "source_table": "Hospital_Visit.csv",
+                              "source_field": "admission_date"
+                        },
+                        "person_id": {
+                              "source_table": "Hospital_Visit.csv",
+                              "source_field": "ID"
+                        }
+                  },
+                  "Mental health problem 3046": {
+                        "condition_concept_id": {
+                              "source_table": "GP_Records.csv",
+                              "source_field": "comorbidity",
+                              "term_mapping": {
+                                    "Mental Health": 4131548
+                              }
+                        },
+                        "condition_end_datetime": {
+                              "source_table": "GP_Records.csv",
+                              "source_field": "date_of_visit"
+                        },
+                        "condition_source_concept_id": {
+                              "source_table": "GP_Records.csv",
+                              "source_field": "comorbidity",
+                              "term_mapping": {
+                                    "Mental Health": 4131548
+                              }
+                        },
+                        "condition_source_value": {
+                              "source_table": "GP_Records.csv",
+                              "source_field": "comorbidity"
+                        },
+                        "condition_start_datetime": {
+                              "source_table": "GP_Records.csv",
+                              "source_field": "date_of_visit"
+                        },
+                        "person_id": {
+                              "source_table": "GP_Records.csv",
+                              "source_field": "ID"
+                        }
+                  },
+                  "Mental disorder 3047": {
+                        "condition_concept_id": {
+                              "source_table": "GP_Records.csv",
+                              "source_field": "comorbidity",
+                              "term_mapping": {
+                                    "Mental Health": 432586
+                              }
+                        },
+                        "condition_end_datetime": {
+                              "source_table": "GP_Records.csv",
+                              "source_field": "date_of_visit"
+                        },
+                        "condition_source_concept_id": {
+                              "source_table": "GP_Records.csv",
+                              "source_field": "comorbidity",
+                              "term_mapping": {
+                                    "Mental Health": 432586
+                              }
+                        },
+                        "condition_source_value": {
+                              "source_table": "GP_Records.csv",
+                              "source_field": "comorbidity"
+                        },
+                        "condition_start_datetime": {
+                              "source_table": "GP_Records.csv",
+                              "source_field": "date_of_visit"
+                        },
+                        "person_id": {
+                              "source_table": "GP_Records.csv",
+                              "source_field": "ID"
+                        }
+                  },
+                  "Type 2 diabetes mellitus 3048": {
+                        "condition_concept_id": {
+                              "source_table": "GP_Records.csv",
+                              "source_field": "comorbidity",
+                              "term_mapping": {
+                                    "Diabetes Type-II": 201826
+                              }
+                        },
+                        "condition_end_datetime": {
+                              "source_table": "GP_Records.csv",
+                              "source_field": "date_of_visit"
+                        },
+                        "condition_source_concept_id": {
+                              "source_table": "GP_Records.csv",
+                              "source_field": "comorbidity",
+                              "term_mapping": {
+                                    "Diabetes Type-II": 201826
+                              }
+                        },
+                        "condition_source_value": {
+                              "source_table": "GP_Records.csv",
+                              "source_field": "comorbidity"
+                        },
+                        "condition_start_datetime": {
+                              "source_table": "GP_Records.csv",
+                              "source_field": "date_of_visit"
+                        },
+                        "person_id": {
+                              "source_table": "GP_Records.csv",
+                              "source_field": "ID"
+                        }
+                  },
+                  "Ischemic heart disease 3049": {
+                        "condition_concept_id": {
+                              "source_table": "GP_Records.csv",
+                              "source_field": "comorbidity",
+                              "term_mapping": {
+                                    "Heart Condition": 4185932
+                              }
+                        },
+                        "condition_end_datetime": {
+                              "source_table": "GP_Records.csv",
+                              "source_field": "date_of_visit"
+                        },
+                        "condition_source_concept_id": {
+                              "source_table": "GP_Records.csv",
+                              "source_field": "comorbidity",
+                              "term_mapping": {
+                                    "Heart Condition": 4185932
+                              }
+                        },
+                        "condition_source_value": {
+                              "source_table": "GP_Records.csv",
+                              "source_field": "comorbidity"
+                        },
+                        "condition_start_datetime": {
+                              "source_table": "GP_Records.csv",
+                              "source_field": "date_of_visit"
+                        },
+                        "person_id": {
+                              "source_table": "GP_Records.csv",
+                              "source_field": "ID"
+                        }
+                  },
+                  "Hypertensive disorder 3050": {
+                        "condition_concept_id": {
+                              "source_table": "GP_Records.csv",
+                              "source_field": "comorbidity",
+                              "term_mapping": {
+                                    "High Blood Pressure": 316866
+                              }
+                        },
+                        "condition_end_datetime": {
+                              "source_table": "GP_Records.csv",
+                              "source_field": "date_of_visit"
+                        },
+                        "condition_source_concept_id": {
+                              "source_table": "GP_Records.csv",
+                              "source_field": "comorbidity",
+                              "term_mapping": {
+                                    "High Blood Pressure": 316866
+                              }
+                        },
+                        "condition_source_value": {
+                              "source_table": "GP_Records.csv",
+                              "source_field": "comorbidity"
+                        },
+                        "condition_start_datetime": {
+                              "source_table": "GP_Records.csv",
+                              "source_field": "date_of_visit"
+                        },
+                        "person_id": {
+                              "source_table": "GP_Records.csv",
+                              "source_field": "ID"
+                        }
+                  }
+            },
+            "drug_exposure": {
+                  "COVID-19 vaccine 3034": {
+                        "drug_concept_id": {
+                              "source_table": "Vaccinations.csv",
+                              "source_field": "type",
+                              "term_mapping": {
+                                    "Moderna": 35894915
+                              }
+                        },
+                        "drug_exposure_end_datetime": {
+                              "source_table": "Vaccinations.csv",
+                              "source_field": "date_of_vaccination"
+                        },
+                        "drug_exposure_start_datetime": {
+                              "source_table": "Vaccinations.csv",
+                              "source_field": "date_of_vaccination"
+                        },
+                        "drug_source_concept_id": {
+                              "source_table": "Vaccinations.csv",
+                              "source_field": "type",
+                              "term_mapping": {
+                                    "Moderna": 35894915
+                              }
+                        },
+                        "drug_source_value": {
+                              "source_table": "Vaccinations.csv",
+                              "source_field": "type"
+                        },
+                        "person_id": {
+                              "source_table": "Vaccinations.csv",
+                              "source_field": "ID"
+                        }
+                  },
+                  "COVID-19 vaccine 3035": {
+                        "drug_concept_id": {
+                              "source_table": "Vaccinations.csv",
+                              "source_field": "type",
+                              "term_mapping": {
+                                    "AstraZenica": 35894915
+                              }
+                        },
+                        "drug_exposure_end_datetime": {
+                              "source_table": "Vaccinations.csv",
+                              "source_field": "date_of_vaccination"
+                        },
+                        "drug_exposure_start_datetime": {
+                              "source_table": "Vaccinations.csv",
+                              "source_field": "date_of_vaccination"
+                        },
+                        "drug_source_concept_id": {
+                              "source_table": "Vaccinations.csv",
+                              "source_field": "type",
+                              "term_mapping": {
+                                    "AstraZenica": 35894915
+                              }
+                        },
+                        "drug_source_value": {
+                              "source_table": "Vaccinations.csv",
+                              "source_field": "type"
+                        },
+                        "person_id": {
+                              "source_table": "Vaccinations.csv",
+                              "source_field": "ID"
+                        }
+                  },
+                  "COVID-19 vaccine 3036": {
+                        "drug_concept_id": {
+                              "source_table": "Vaccinations.csv",
+                              "source_field": "type",
+                              "term_mapping": {
+                                    "Pfizer": 35894915
+                              }
+                        },
+                        "drug_exposure_end_datetime": {
+                              "source_table": "Vaccinations.csv",
+                              "source_field": "date_of_vaccination"
+                        },
+                        "drug_exposure_start_datetime": {
+                              "source_table": "Vaccinations.csv",
+                              "source_field": "date_of_vaccination"
+                        },
+                        "drug_source_concept_id": {
+                              "source_table": "Vaccinations.csv",
+                              "source_field": "type",
+                              "term_mapping": {
+                                    "Pfizer": 35894915
+                              }
+                        },
+                        "drug_source_value": {
+                              "source_table": "Vaccinations.csv",
+                              "source_field": "type"
+                        },
+                        "person_id": {
+                              "source_table": "Vaccinations.csv",
+                              "source_field": "ID"
+                        }
+                  },
+                  "SARS-CoV-2 (COVID-19) vaccine, mRNA-1273 0.2 MG/ML Injectable Suspension 3040": {
+                        "drug_concept_id": {
+                              "source_table": "Vaccinations.csv",
+                              "source_field": "type",
+                              "term_mapping": {
+                                    "Moderna": 37003518
+                              }
+                        },
+                        "drug_exposure_end_datetime": {
+                              "source_table": "Vaccinations.csv",
+                              "source_field": "date_of_vaccination"
+                        },
+                        "drug_exposure_start_datetime": {
+                              "source_table": "Vaccinations.csv",
+                              "source_field": "date_of_vaccination"
+                        },
+                        "drug_source_concept_id": {
+                              "source_table": "Vaccinations.csv",
+                              "source_field": "type",
+                              "term_mapping": {
+                                    "Moderna": 37003518
+                              }
+                        },
+                        "drug_source_value": {
+                              "source_table": "Vaccinations.csv",
+                              "source_field": "type"
+                        },
+                        "person_id": {
+                              "source_table": "Vaccinations.csv",
+                              "source_field": "ID"
+                        }
+                  },
+                  "SARS-CoV-2 (COVID-19) vaccine, mRNA-BNT162b2 0.1 MG/ML Injectable Suspension 3041": {
+                        "drug_concept_id": {
+                              "source_table": "Vaccinations.csv",
+                              "source_field": "type",
+                              "term_mapping": {
+                                    "Pfizer": 37003436
+                              }
+                        },
+                        "drug_exposure_end_datetime": {
+                              "source_table": "Vaccinations.csv",
+                              "source_field": "date_of_vaccination"
+                        },
+                        "drug_exposure_start_datetime": {
+                              "source_table": "Vaccinations.csv",
+                              "source_field": "date_of_vaccination"
+                        },
+                        "drug_source_concept_id": {
+                              "source_table": "Vaccinations.csv",
+                              "source_field": "type",
+                              "term_mapping": {
+                                    "Pfizer": 37003436
+                              }
+                        },
+                        "drug_source_value": {
+                              "source_table": "Vaccinations.csv",
+                              "source_field": "type"
+                        },
+                        "person_id": {
+                              "source_table": "Vaccinations.csv",
+                              "source_field": "ID"
+                        }
+                  }
+            }
+      }
+}
