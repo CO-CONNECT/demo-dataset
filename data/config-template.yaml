@@ -1,0 +1,18 @@
+settings:
+  listen_for_changes: <bool>
+  clean: <bool>
+
+load: &load-bclink
+  cache: <str: cache folder> 
+  bclink:
+    dry_run: <bool>
+
+transform:
+  settings: &settings
+    output: *load-bclink
+    rules: <str: rules .json file>
+  data:
+    - input: <str: first input data folder>
+      <<: *settings
+    - input: <str: additional input data folder>
+      <<: *settings
