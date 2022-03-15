@@ -1,7 +1,12 @@
 settings:
-  listen_for_changes: true
+  listen_for_changes: false
   #clean: False
 
+extract: &pseudonymise
+  bash: |
+    echo "Going to run {input} and put output in {output}"
+    pseudonymise csv --salt 12345 --id ID --output-folder {output} {input}      
+  
 load: &load-bclink
   cache: output/
   bclink:
@@ -9,14 +14,17 @@ load: &load-bclink
 
 transform:
   settings: &settings
-    output: output/
+    #output: output/
     #merge_output: true
-    #output: *load-bclink
-    rules: rules_small.json
+    output: *load-bclink
+    rules: data/rules_small.json
     #rules: rules.json
   data:
-    - input: data/
-      <<: *settings
+    input:
+      <<: *pseudonymise
+      input: data/
+      output: data_pseudonymised/
+    <<: *settings
     #- input: data/part1/
     #  <<: *settings
     #- input: data/part2/

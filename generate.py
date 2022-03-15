@@ -16,6 +16,7 @@ class Demographics(DestinationTable):
         self.ID = DestinationField(dtype="Text50", required=True)
         self.Age = DestinationField(dtype="Integer", required=False)
         self.Sex = DestinationField(dtype="Text50", required=False )
+        self.Ethnicity = DestinationField(dtype="Text50", required=False )
         super().__init__(self.name,type(self).__name__)
 
 class Symptoms(DestinationTable):
@@ -129,7 +130,8 @@ class ExampleCovid19DataSet(CommonDataModel):
         self.Age.series = pd.Series(np.random.normal(60,20,self.n)).astype(int)
         self.Age.series = self.Age.series.mask(self.Age.series < 0 , None)
         self.Sex.series = pd.Series(np.random.choice(['Male','Female',None],size=self.n,p=[0.55,0.445,0.005]))
-
+        self.Ethnicity.series = pd.Series(np.random.choice(['White','Black','Asian',None],size=self.n,p=[0.7,0.1,0.1,0.1]))
+ 
     @define_table(Symptoms)
     def symptoms(self):
 
@@ -297,10 +299,10 @@ class ExampleCovid19DataSet(CommonDataModel):
 
 if __name__ == "__main__":
     #first part is 100k people with person ids from pk1-pk100000
-    ExampleCovid19DataSet(n=100000,istart=1,output_folder='./data/part1/')
+    #ExampleCovid19DataSet(n=100000,istart=1,output_folder='./data/part1/')
     #second part is 40k people with person ids from pk100001-pk140000
     ExampleCovid19DataSet(n=40000,istart=100001,output_folder='./data/part2/')
     #third part is 30k people with person ids that overlap with the first two parts
     # - these can be used to check what happens when duplicated are created
     # - or the demographics file can be removed and it can be used as a data dump test
-    ExampleCovid19DataSet(n=30000,istart=80001,output_folder='./data/part3/')
+    #ExampleCovid19DataSet(n=30000,istart=80001,output_folder='./data/part3/')
