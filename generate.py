@@ -17,6 +17,7 @@ class Demographics(DestinationTable):
         self.Age = DestinationField(dtype="Integer", required=False)
         self.Sex = DestinationField(dtype="Text50", required=False )
         self.Ethnicity = DestinationField(dtype="Text50", required=False )
+        self.IMD = DestinationField(dtype="Integer", required=False )
         super().__init__(self.name,type(self).__name__)
 
 class Symptoms(DestinationTable):
@@ -131,7 +132,13 @@ class ExampleCovid19DataSet(CommonDataModel):
         self.Age.series = self.Age.series.mask(self.Age.series < 0 , None)
         self.Sex.series = pd.Series(np.random.choice(['Male','Female',None],size=self.n,p=[0.55,0.445,0.005]))
         self.Ethnicity.series = pd.Series(np.random.choice(['White','Black','Asian',None],size=self.n,p=[0.7,0.1,0.1,0.1]))
- 
+
+        def get_p_from_ethnicity(x):
+            _map = {'White':0.45,'Black':0.55,'Asian':0.52,None:0.5}
+            return _map[x]
+        
+        self.IMD.series = self.Ethnicity.series.apply(lambda x: np.random.binomial(10,p=get_p_from_ethnicity(x)))
+        
     @define_table(Symptoms)
     def symptoms(self):
 
@@ -158,8 +165,9 @@ class ExampleCovid19DataSet(CommonDataModel):
     @define_table(Serology)
     def serology(self):
         
-        def calc_IgG(age,sex,nrisks):
+        def calc_IgG(age,sex,imd,nrisks):
             scale = 50*(1 - age/200)*(1.1 if sex=='Female' else 1.0)*(1/nrisks)
+            scale = (1 - ((imd+0.1-5)/10) )*scale
             return np.random.exponential(scale=scale)
         
         df_gp = self.cdm.gp.get_df()
@@ -174,7 +182,7 @@ class ExampleCovid19DataSet(CommonDataModel):
 
         df = df.sample(frac=1.4,replace=True).reset_index()
 
-        df['IgG'] = df.apply(lambda x : calc_IgG(x.Age,x.Sex,x.nrisks),axis=1)
+        df['IgG'] = df.apply(lambda x : calc_IgG(x.Age,x.Sex,x.IMD,x.nrisks),axis=1)
         df.sort_values('ID',inplace=True)
         
         self.IgG.series = df['IgG']
@@ -185,14 +193,14 @@ class ExampleCovid19DataSet(CommonDataModel):
     @define_table(GP_Records)
     def gp(self):
     
-        def calc_comoribidites(age):
+        def calc_comoribidites(age,imd):
             if pd.isna(age):
                 return []   
             comorbidities = {
-                'Mental Health':0.3*(1 + age/90) ,
-                'Diabetes Type-II':0.15*(1 + age/70) ,
-                'Heart Condition':0.1*(1 + age/50) ,
-                'High Blood Pressure':0.07*(1 + age/60),
+                'Mental Health':0.3*(1 + age/90 + imd/100) ,
+                'Diabetes Type-II':0.15*(1 + age/70 + imd/100) ,
+                'Heart Condition':0.1*(1 + age/50 + imd/100) ,
+                'High Blood Pressure':0.07*(1 + age/60 + imd/100),
                 'BMI': 1
             }
             return [x for x,p in comorbidities.items() if np.all(np.random.uniform() < p) ]
@@ -200,7 +208,7 @@ class ExampleCovid19DataSet(CommonDataModel):
         #90% of people have a GP visit record
         df = self.cdm.demo.get_df().sample(frac=0.9).reset_index()
 
-        df['comorbidity'] = df.apply(lambda x: calc_comoribidites(x.Age),axis=1)
+        df['comorbidity'] = df.apply(lambda x: calc_comoribidites(x.Age,x.IMD),axis=1)
         df['date_of_observation'] = create_gaus_time_series(mu=datetime.datetime(2010,5,1),
                                                               sigma={'days':700},
                                                               n=len(df))
@@ -301,8 +309,8 @@ if __name__ == "__main__":
     #first part is 100k people with person ids from pk1-pk100000
     #ExampleCovid19DataSet(n=100000,istart=1,output_folder='./data/part1/')
     #second part is 40k people with person ids from pk100001-pk140000
-    ExampleCovid19DataSet(n=40000,istart=100001,output_folder='./data/part2/')
+    #ExampleCovid19DataSet(n=40000,istart=100001,output_folder='./data/part2/')
     #third part is 30k people with person ids that overlap with the first two parts
     # - these can be used to check what happens when duplicated are created
     # - or the demographics file can be removed and it can be used as a data dump test
-    #ExampleCovid19DataSet(n=30000,istart=80001,output_folder='./data/part3/')
+    ExampleCovid19DataSet(n=30000,istart=80001,output_folder='./data/part3/')
